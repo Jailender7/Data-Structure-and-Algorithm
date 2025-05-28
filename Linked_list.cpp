@@ -56,6 +56,21 @@ class linkedList{
         }
     }
 
+    // insert at end of linked list
+    // T.C = O(1);
+    void insert_at_end(int value){
+        node* temp = new node();
+        temp->data = value;
+
+        if(head==NULL){
+            temp->next = head;
+            head = temp;
+            tail = temp;
+        }else{
+            tail->next = temp;
+            tail = temp;
+        }
+    }
     
 
 };
