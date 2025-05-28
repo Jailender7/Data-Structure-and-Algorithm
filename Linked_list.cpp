@@ -29,14 +29,16 @@ class linkedList{
     // print the Linked List or Traverse linked list
     // T.C = O(n)
     void print(){
-        if(head == NULL){
+        node* curr = head;
+        if(curr == NULL){
             cout<<"Linked list is empty"<<endl;
         }
         else{
-            while(head!=NULL){
-                cout<<head->data<<" -> ";
-                head = head->next;
+            while(curr!=NULL){
+                cout<<curr->data<<" -> ";
+                curr = curr->next;
             }
+            cout<<endl;
         }
     }
 
@@ -175,7 +177,18 @@ int main(){
 
     ll.insert_at_position(69,4);
     //ll.insert_at_position(66,1);
+    cout<<"Linked list is : "; 
+    ll.print();
+    
+    cout<<"Linked list after deletion : ";
+    //ll.delete_at_start();
+    //ll.insert_at_start(89);
 
+    //ll.delete_at_end();
+    // ll.insert_at_end(87);
+
+    ll.delete_at_position(5);
+    
     ll.print();
     
     return 0;
