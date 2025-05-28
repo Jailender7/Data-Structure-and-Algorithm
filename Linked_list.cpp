@@ -129,6 +129,35 @@ class linkedList{
     }
 
 
+    // deletion at any position
+    void delete_at_position(int position){
+        // linked list is empty
+        if(head == NULL){
+            cout<<"Linked list is empty"<<endl;
+            return;
+        }
+
+        if(position == 1){
+            delete_at_start();
+            return;
+        }
+        node* curr = head;
+        int cnt = 0;
+        while(curr->next != NULL && cnt != (position-2)){
+            curr = curr->next;
+            cnt++;
+        }
+        node* temp = curr->next;
+        if(curr->next != NULL){ // this line for handle null pointer exception
+            curr->next = curr->next->next;
+        }else{
+            curr->next = curr->next;
+        }
+    
+        delete temp;
+    }
+
+
 };
 
 int main(){
