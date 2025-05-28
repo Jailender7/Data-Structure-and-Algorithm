@@ -71,7 +71,7 @@ class linkedList{
             tail = temp;
         }
     }
-    
+
 
     // insert at any position or middle or this function is useful for insert at start or end
     // T.C of this function = O(n) : n is length of linked list or position
@@ -104,6 +104,20 @@ class linkedList{
 int main(){
 
     linkedList ll;
+
+    ll.insert_at_start(3);
+    ll.insert_at_start(4);
+    ll.insert_at_start(7);
+    ll.insert_at_start(8);
+
+    ll.insert_at_end(10);
+    ll.insert_at_end(18);
+    ll.insert_at_end(65); 
+
+    ll.insert_at_position(69,4);
+    //ll.insert_at_position(66,1);
+
+    ll.print();
     
     return 0;
 }
