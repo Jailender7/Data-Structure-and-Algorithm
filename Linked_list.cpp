@@ -111,6 +111,24 @@ class linkedList{
     }
 
 
+     // deletion at end
+    void delete_at_end(){
+        node* curr = head;
+        // linked list is empty
+        if(head==NULL){
+            cout<<"Linked list is empty"<<endl;
+            return;
+        }
+        while(curr->next->next != NULL){
+            curr = curr->next;
+        }
+        tail = curr;
+        curr = curr->next;
+        delete curr;
+        tail->next = NULL;
+    }
+
+
 };
 
 int main(){
