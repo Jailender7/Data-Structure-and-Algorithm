@@ -26,6 +26,22 @@ class linkedList{
         tail=NULL;
     }
 
+
+    // insert at start of linkedlist
+    // T.C = O(1)
+    void insert_at_start(int value){
+        node* temp = new node();
+        temp->data = value;
+        if(head==NULL){
+            temp->next = head;
+            head = temp;
+            tail = temp;
+        }else{
+            temp->next = head;
+            head = temp;
+        }
+    }
+
     
 
 };
