@@ -73,6 +73,32 @@ class linkedList{
     }
     
 
+    // insert at any position or middle or this function is useful for insert at start or end
+    // T.C of this function = O(n) : n is length of linked list or position
+    void insert_at_position(int value, int position){
+        node* temp = new node();
+        temp->data = value;
+
+        // linked list empty
+        if(head == NULL || position==1){
+            temp->next = head;
+            head = temp;
+            tail = temp;
+        }else{ // linked list is non-empty
+            int cnt=0;
+            node*curr = head; // to track the element at that position
+
+            while(curr->next !=NULL && cnt !=(position-2)){
+                cnt++;
+                curr = curr->next;
+            }
+            // joining the connection b/w nodes using curr node
+            temp->next = curr->next;
+            curr->next = temp;
+        }
+    }
+
+
 };
 
 int main(){
