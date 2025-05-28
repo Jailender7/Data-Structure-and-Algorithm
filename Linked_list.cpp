@@ -26,6 +26,20 @@ class linkedList{
         tail=NULL;
     }
 
+    // print the Linked List or Traverse linked list
+    // T.C = O(n)
+    void print(){
+        if(head == NULL){
+            cout<<"Linked list is empty"<<endl;
+        }
+        else{
+            while(head!=NULL){
+                cout<<head->data<<" -> ";
+                head = head->next;
+            }
+        }
+    }
+
 
     // insert at start of linkedlist
     // T.C = O(1)
