@@ -98,6 +98,18 @@ class linkedList{
         }
     }
 
+    // deletion at beginning
+    void delete_at_start(){
+        // empty linked list
+        if(head==NULL){
+            cout<<"Linked List is empty"<<endl;
+            return;
+        }
+        node* curr = head;
+        head = head->next;
+        delete curr;
+    }
+
 
 };
 
