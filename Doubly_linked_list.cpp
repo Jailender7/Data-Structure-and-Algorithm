@@ -88,6 +88,7 @@ class doublyList{
         }
     }
 
+    // Delete at any position of the list
     void deleteAtPosition(int p){
         if(p==1){
             deleteAtStart();
@@ -99,7 +100,6 @@ class doublyList{
                 curr = curr->next;
             }
 
-            // Delete At any position of the list
             node* NodeToDelete = curr->next;
             // deleting last node of the list
             if(NodeToDelete->next == NULL){
