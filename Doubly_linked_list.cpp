@@ -87,6 +87,33 @@ class doublyList{
             delete t;
         }
     }
+
+    void deleteAtPosition(int p){
+        if(p==1){
+            deleteAtStart();
+        }else{
+            int cnt = 1;
+            node* curr = head;
+            while(cnt != (p-1)){
+                cnt++;
+                curr = curr->next;
+            }
+
+            // Delete At any position of the list
+            node* NodeToDelete = curr->next;
+            // deleting last node of the list
+            if(NodeToDelete->next == NULL){
+                deleteAtEnd();
+            }else{
+                curr->next = NodeToDelete->next;
+                NodeToDelete->next->prev = curr;
+                NodeToDelete->next = NULL;
+                NodeToDelete->prev = NULL;
+                delete NodeToDelete;
+            }
+
+        }
+    }
 };
 
 
@@ -118,7 +145,8 @@ int main(){
     */
 
     dl.print();
-    dl.deleteAtEnd();
+    //dl.deleteAtEnd();
+    dl.deleteAtPosition(7);
     dl.print();
     return 0;
 }
