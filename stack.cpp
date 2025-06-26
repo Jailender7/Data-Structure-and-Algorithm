@@ -2,8 +2,8 @@
 using namespace std;
 
 class Stack{
-    
-    int *arr = new int[20];
+    int capacity = 5;
+    int *arr = new int[capacity];
     int index;
 
     public:
@@ -13,6 +13,11 @@ class Stack{
     }
 
     void push(int data){
+        if(index == capacity-1){
+            cout<<"Stack is overflow"<<endl;
+            return;
+        }
+
         index++;
         arr[index] = data;
     }
@@ -23,6 +28,15 @@ class Stack{
             return -1;
         }
         return arr[index];
+    }
+
+    void pop(){
+        if(index == -1){
+            cout<<"Stack is underflow"<<endl;
+            return;
+        }else{
+            index--;
+        }
     }
 
 };
@@ -36,9 +50,14 @@ int main(){
     s.push(15);
     s.push(20);
     s.push(-1);
-    s.push(03);
     
+    s.pop();
+    s.pop();
+    s.pop();
+    s.pop();
+    s.push(78);
 
+    
     cout<<"Top element of stack is "<<s.top()<<endl;
 
     return 0;
