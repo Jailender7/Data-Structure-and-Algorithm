@@ -11,7 +11,8 @@ class Stack{
     Stack(){
         index = -1;
     }
-
+    
+    // Here, is push functionality in stack
     void push(int data){
         if(index == capacity-1){
             cout<<"Stack is overflow"<<endl;
@@ -22,6 +23,7 @@ class Stack{
         arr[index] = data;
     }
 
+    // Getting top element of the stack
     int top(){
         if(index == -1){
             cout<<"Stack is underflow"<<endl;
@@ -30,6 +32,7 @@ class Stack{
         return arr[index];
     }
 
+    // pop or delete element from the stack
     void pop(){
         if(index == -1){
             cout<<"Stack is underflow"<<endl;
@@ -39,6 +42,7 @@ class Stack{
         }
     }
 
+    // Check Stack is empty or not
     bool isEmpty(){
         if(index == -1){
             return true;
@@ -47,6 +51,7 @@ class Stack{
         }
     }
 
+    // Find the size of the Stack
     int size(){
         return (index+1);
     }
@@ -58,17 +63,22 @@ int main(){
 
     Stack s;
     
+    // Calling the function to push the element in the stack
     s.push(12);
     s.push(15);
     s.push(20);
     s.push(-1);
     
+    // Calling the function to pop or delete the element from the stack
     s.pop();
     s.pop();
     s.pop();
     s.pop();
+
+
     s.push(78);
     s.pop();
+
 
     if(s.isEmpty()){
         cout<<"Stack is Empty"<<endl;
