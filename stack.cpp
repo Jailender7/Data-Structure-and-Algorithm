@@ -39,6 +39,18 @@ class Stack{
         }
     }
 
+    bool isEmpty(){
+        if(index == -1){
+            return true;
+        }else{
+            return 0;
+        }
+    }
+
+    int size(){
+        return (index+1);
+    }
+
 };
 
 
@@ -56,7 +68,15 @@ int main(){
     s.pop();
     s.pop();
     s.push(78);
+    s.pop();
 
+    if(s.isEmpty()){
+        cout<<"Stack is Empty"<<endl;
+    }else{
+        cout<<"Stack is non empty"<<endl;
+    }
+
+    cout<<"Size of Stack is "<<s.size()<<endl;
     
     cout<<"Top element of stack is "<<s.top()<<endl;
 
