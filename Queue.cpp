@@ -16,7 +16,7 @@ class Queue{
     // function for push element in queue
     void push(int value){
         // check queue is full or not
-        if(rear == capicity){
+        if(rear == capicity-1){
             cout<<"Queue is Overflow"<<endl;
         }else if(front== -1){ // push first element in the queue
             front=0;
@@ -38,6 +38,21 @@ class Queue{
 
         return arr[front];
     }
+
+    // Pop or delete a element from queue
+    void pop(){
+        //check queue is empty or not
+        if(front == -1){
+            cout<<"Queue is underflow"<<endl;
+            return;
+        }
+
+        arr[front] = -1; // this is marking at place is empty
+        front++;
+        if(front==rear+1){
+            front = rear = -1;
+        }
+    }
 };
 
 int main(){
@@ -47,9 +62,19 @@ int main(){
     q.push(90);
     q.push(34);
     q.push(89);
+    q.push(78);
     q.push(69);
 
     cout<<"Front element of your queue is "<<q.frontElement()<<endl;
+
+    q.pop();
+    cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    q.pop();
+    cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    q.pop();
+    cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    q.pop();
+    cout<<"Front element of queue is "<<q.frontElement()<<endl;
 
 
 
