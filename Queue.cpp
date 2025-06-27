@@ -53,6 +53,23 @@ class Queue{
             front = rear = -1;
         }
     }
+
+    // function for queue is empty or not
+    bool isEmpty(){
+        if(rear == -1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    // function for check size of the queue
+    int size(){
+        if(front == -1) return 0;
+
+
+        return ((rear+1) - front);
+    }
 };
 
 int main(){
@@ -65,17 +82,36 @@ int main(){
     q.push(78);
     q.push(69);
 
+    cout<<"Size of Queue is "<<q.size()<<endl;
+
     cout<<"Front element of your queue is "<<q.frontElement()<<endl;
 
     q.pop();
     cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    cout<<"Size of Queue is "<<q.size()<<endl;
     q.pop();
     cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    cout<<"Size of Queue is "<<q.size()<<endl;
     q.pop();
     cout<<"Front element of queue is "<<q.frontElement()<<endl;
+    cout<<"Size of Queue is "<<q.size()<<endl;
     q.pop();
     cout<<"Front element of queue is "<<q.frontElement()<<endl;
 
+    cout<<"Size of the queue is "<<q.size()<<endl;
+    if(q.isEmpty()){
+        cout<<"Queue is empty"<<endl;
+    }else{
+        cout<<"Queue is not empty"<<endl;
+    }
+
+    q.pop();
+    cout<<"Size of the queue is "<<q.size()<<endl;
+    if(q.isEmpty()){
+        cout<<"Queue is empty"<<endl;
+    }else{
+        cout<<"Queue is not empty"<<endl;
+    }
 
 
     return 0;
