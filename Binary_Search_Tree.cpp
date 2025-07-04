@@ -1,6 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+    Defination of binary Search Tree :
+    For every node in a binary search tree maximum value of left sub tree must be less
+    than current node && minimum value of right subtree must be greater than or equal
+    to current node.
+*/
+
+// node of the binary search tree
 class node{
     public:
     int data;
