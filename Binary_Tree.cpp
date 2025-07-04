@@ -33,7 +33,6 @@ node *buildTree(node *root)
         return NULL;
 
     cout << "Left value of " << value << endl;
-    ;
     root->left = buildTree(root);
 
     cout << "Right value of " << value << endl;
@@ -123,19 +122,19 @@ void postOrder(node *root)
 void morrisTraversal(node* root){
     node* curr = root;
     while(curr!=NULL){
-        if(curr->left==NULL){
+        if(curr->left==NULL){ // curr->left not exist then do this
             cout<<curr->data<<" ";
             curr = curr->right;
         }else{
             node* prev = curr->left;
-            while(prev->right != NULL && prev->right!=curr){
+            while(prev->right != NULL && prev->right!=curr){ // until prev->right != NULL do this
                 prev = prev->right;
             }
 
-            if(prev->right == NULL){
+            if(prev->right == NULL){ // if prev->right is null then point prev->right to curr then update curr to left
                 prev->right = curr;
                 curr = curr->left;
-            }else{
+            }else{ // then print curr ka data then update curr to right
                 prev->right = NULL;
                 cout<<curr->data<<" ";
                 curr = curr->right;
