@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Define node of the tree
 class node
 {
 
@@ -20,6 +21,7 @@ public:
     }
 };
 
+// insert a node in binary tree
 node *buildTree(node *root)
 {
     int value;
@@ -40,6 +42,7 @@ node *buildTree(node *root)
     return root;
 }
 
+// Level order traversal in binary tree
 void levelOrderTraversal(node *root)
 {
     if (root == NULL)
@@ -116,6 +119,31 @@ void postOrder(node *root)
     cout << root->data << " ";
 }
 
+// Morris Traversal in binary tree (T.c is O(n) but S.C is O(1)) but other traversal has time complexity is same but S.C is O(n)
+void morrisTraversal(node* root){
+    node* curr = root;
+    while(curr!=NULL){
+        if(curr->left==NULL){
+            cout<<curr->data<<" ";
+            curr = curr->right;
+        }else{
+            node* prev = curr->left;
+            while(prev->right != NULL && prev->right!=curr){
+                prev = prev->right;
+            }
+
+            if(prev->right == NULL){
+                prev->right = curr;
+                curr = curr->left;
+            }else{
+                prev->right = NULL;
+                cout<<curr->data<<" ";
+                curr = curr->right;
+            }
+        }
+    }
+}
+
 int main()
 {
 
@@ -138,5 +166,8 @@ int main()
     cout << "PostOrder traversal of tree is ";
     postOrder(root);
     cout << endl;
+
+    cout<<"Morris traversal of tree is ";
+    morrisTraversal(root);
     return 0;
 }
