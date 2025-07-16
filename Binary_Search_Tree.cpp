@@ -149,12 +149,77 @@ void morrisTraversal(node* root){
     }
 }
 
+// inOrder Successor
+node* inOrderSuccessor(node* root, node* val){
+    // if root or that node is null :: that node means finding successor of that node or data
+    if(!root || !val) return NULL;
+
+    // case 1: if right subTree exist of that node then find min. value of the right sub tree
+    if(val->right){
+        node* curr = val->right;
+        while(curr->left){
+            curr = curr->left;
+        }
+
+        return curr;
+    }
+
+    // case 2: if right child or right subTree doesn't exist of that node then their ancestor may be inOrder successor that node
+    node* successor = NULL;
+    node* curr = root;
+    while(curr){
+        if(curr->data > val->data){
+            successor = curr;
+            curr = curr->left;
+        }else if (curr->data < val->data){
+            curr= curr->right;
+        }else{
+            break; // that node finding for successor and current node is same so break the loop
+        }
+    }
+
+    return successor;
+}
+
+// inOrder predecessor
+node* inOrderPredecessor(node* root, node* val){
+
+    // if root or that node is null then return null
+    if(!root || !val) return NULL;
+
+    // if left child exist of that node then find max element in the left subTree
+    if(val->left){
+        node* curr = val->left;
+        while(curr->right){
+            curr = curr->right;
+        }
+        return curr;
+    }
+
+    // if there is no left child exist then their ancestor may be the predecessor
+    node* predecessor = NULL;
+    node* curr = root;
+    while(curr){
+        if(curr->data > val->data){
+            curr = curr->left;
+        }else if(curr->data < val->data){
+            predecessor = curr;
+            curr = curr->right;
+        }else{
+            break;
+        }
+    }
+    return predecessor;
+}
+
 int main(){
 
     node* root = NULL;
     cout<<"Enter data for BST : ";
     insertNode(root);
     cout<<endl;
+
+    // Example data for BST = 20 17 25 13 18 22 33 10 14 30 45 -1
 
     // inOrder traversal function call
     cout<<"Indorder traversal of BST : ";
@@ -175,6 +240,35 @@ int main(){
     cout<<"Morris traversal in BST : ";
     morrisTraversal(root);
     cout<<endl;
+    
+    /*
+    // these line of code is only for test two function :
+    // 1. inOrder Successor
+    // 2. inOrder Predecessor
 
+    node* pres = root;
+    int v = 13;
+
+    while(pres != NULL){
+        if(pres->data > v){
+            pres = pres->left;
+        }else if(pres->data < v){
+            pres = pres->right;
+        }else{
+            break;
+        }
+    }
+
+    //cout<<"Data of pres is "<<pres->data<<endl;
+    cout<<"inOrder Successor of "<<v<<" is ";
+    node* successor = inOrderSuccessor(root,pres);
+    if(successor)
+    cout<<successor->data<<endl;
+    else
+    cout<<" not present"<<endl;
+
+    node* pred = inOrderPredecessor(root,pres);
+    cout<<"Predecessor of "<<v<<" is "<<pred->data<<endl;
+*/
     return 0;
 }
